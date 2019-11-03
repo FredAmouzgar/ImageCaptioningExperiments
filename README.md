@@ -20,3 +20,5 @@ python train.py --id fc --caption_model fc --input_json data/cocotalk.json --inp
 # Clipped-SC training for 60 epochs (30 epochs after pre-training) using FC model
 python2 train.py --id fc_rl --caption_model fc --input_json data/cocotalk.json --input_fc_dir data/cocotalk_fc --input_att_dir data/cocotalk_att --input_label_h5 data/cocotalk_label.h5 --batch_size 10 --learning_rate 5e-5 --start_from log_fc_rl --checkpoint_path log_fc_rl --save_checkpoint_every 6000 --language_eval 1 --val_images_use 5000 --self_critical_after 30 --max_epochs 60 --sc_lambda 0.75 --clipped_lambda 0.25
 ```
+<hr>
+Credit: <a href="https://arxiv.org/abs/1707.06347">PPO paper</a>, <a href="https://arxiv.org/abs/1612.00563">SCST paper</a>, <a href="https://github.com/ruotianluo/self-critical.pytorch">SCST implementation</a>
