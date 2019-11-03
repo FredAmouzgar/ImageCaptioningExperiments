@@ -36,9 +36,9 @@ class LossWrapper(torch.nn.Module):
             loss_sc = self.rl_crit(sample_logprobs, gen_result.data, reward)
             self.old_sample_logprobs = sample_logprobs.clone()
             print("Using sc_lambda: {}\tclipped_lambda: {}".format(sc_lambda,clipped_lambda))
-            #loss = sc_lambda * loss_sc + clipped_lambda * loss_ppo
+            loss = sc_lambda * loss_sc + clipped_lambda * loss_ppo
             #loss = sc_lambda * loss_sc + clipped_lambda * 1 #********* Replacing with a dummy value c = 1 - 13/oct/2019
-            loss = loss_ppo
+            #loss = loss_ppo ## Activate for only Clipped-SC loss
             #########################################################################
             out['reward'] = reward[:, 0].mean()
         else: ##############################################
